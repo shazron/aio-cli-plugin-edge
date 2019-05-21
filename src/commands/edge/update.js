@@ -1,5 +1,5 @@
 const {Command, flags} = require('@oclif/command')
-const repos = require('../repos.json')
+const repos = require('../../repos.json')
 const path = require('path')
 const fs = require('fs')
 const simpleGit = require('simple-git/promise')
