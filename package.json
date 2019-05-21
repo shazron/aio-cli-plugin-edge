@@ -36,7 +36,12 @@
     "bin": "oclif-example",
     "devPlugins": [
       "@oclif/plugin-help"
-    ]
+    ],
+    "topics": {
+      "edge": {
+        "description": "Download, update, link, and unlink repos for the core Adobe I/O cli (edge)"
+      }
+    }    
   },
   "repository": "adobe/aio-cli-edge",
   "scripts": {

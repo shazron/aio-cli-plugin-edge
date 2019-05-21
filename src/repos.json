@@ -1,7 +1,7 @@
 [
   {
     "url": "https://github.com/adobe/aio-cli.git",
-    "cli": true
+    "plugin": false
   },
   {
     "url": "https://github.com/adobe/aio-cli-plugin-config.git",

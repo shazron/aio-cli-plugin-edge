@@ -6,7 +6,7 @@ const simpleGit = require('simple-git/promise')
 
 class UpdateCommand extends Command {
   async run() {
-    const {args} = this.parse(UpdateCommand)
+    const {args, flags} = this.parse(UpdateCommand)
     const workingFolder = path.resolve(args.path)
     if (!fs.existsSync(workingFolder)) {
       this.error('Path does not exist.')
@@ -23,7 +23,14 @@ class UpdateCommand extends Command {
 
       // git pull
       this.log(`git pull ${url}...`)
-      git.pull()
+      git
+      .outputHandler((command, stdout, stderr) => {
+        if (flags.verbose) {
+          stdout.pipe(process.stdout)
+          stderr.pipe(process.stderr)
+        }
+      })
+      .pull('--rebase', '--autostash')
       .then(() => {
         this.log(`\tgit pulled -> ${url}`)
       })

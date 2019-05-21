@@ -19,7 +19,7 @@ $ npm install -g edge-cli
 $ oclif-example COMMAND
 running command...
 $ oclif-example (-v|--version|version)
-edge-cli/0.1.0 darwin-x64 node-v8.15.0
+edge-cli/0.1.0 darwin-x64 node-v8.11.4
 $ oclif-example --help [COMMAND]
 USAGE
   $ oclif-example COMMAND
@@ -28,34 +28,71 @@ USAGE
 <!-- usagestop -->
 # Commands
 <!-- commands -->
-* [`oclif-example create PATH`](#oclif-example-create-path)
-* [`oclif-example update PATH`](#oclif-example-update-path)
+* [`oclif-example edge:install PATH`](#oclif-example-edgeinstall-path)
+* [`oclif-example edge:link PATH`](#oclif-example-edgelink-path)
+* [`oclif-example edge:unlink PATH`](#oclif-example-edgeunlink-path)
+* [`oclif-example edge:update PATH`](#oclif-example-edgeupdate-path)
 
-## `oclif-example create PATH`
+## `oclif-example edge:install PATH`
 
-Download and link repos for the core Adobe I/O cli (edge)
+Download repos for the core Adobe I/O cli (edge)
 
 ```
 USAGE
-  $ oclif-example create PATH
+  $ oclif-example edge:install PATH
 
 ARGUMENTS
   PATH  folder that will contain the Adobe I/O cli repos
+
+OPTIONS
+  --, --verbose  verbose output
+```
+
+_See code: [src/commands/edge/install.js](https://github.com/adobe/aio-cli-edge/blob/v0.1.0/src/commands/edge/install.js)_
+
+## `oclif-example edge:link PATH`
+
+Link repos for the core Adobe I/O cli (edge)
+
+```
+USAGE
+  $ oclif-example edge:link PATH
+
+ARGUMENTS
+  PATH  folder that contains the Adobe I/O cli repos
 
 OPTIONS
   --, --bin=bin  [default: aio-edge] edge cli binary name
   --, --verbose  verbose output
 ```
 
-_See code: [src/commands/create.js](https://github.com/adobe/aio-cli-edge/blob/v0.1.0/src/commands/create.js)_
+_See code: [src/commands/edge/link.js](https://github.com/adobe/aio-cli-edge/blob/v0.1.0/src/commands/edge/link.js)_
 
-## `oclif-example update PATH`
+## `oclif-example edge:unlink PATH`
+
+Unlink repos for the core Adobe I/O cli (edge)
+
+```
+USAGE
+  $ oclif-example edge:unlink PATH
+
+ARGUMENTS
+  PATH  folder that contains the Adobe I/O cli repos
+
+OPTIONS
+  --, --bin=bin  [default: aio-edge] edge cli binary name
+  --, --verbose  verbose output
+```
+
+_See code: [src/commands/edge/unlink.js](https://github.com/adobe/aio-cli-edge/blob/v0.1.0/src/commands/edge/unlink.js)_
+
+## `oclif-example edge:update PATH`
 
 Update repos for the core Adobe I/O cli (edge)
 
 ```
 USAGE
-  $ oclif-example update PATH
+  $ oclif-example edge:update PATH
 
 ARGUMENTS
   PATH  folder that contains the Adobe I/O cli repos (edge)
@@ -64,5 +101,5 @@ OPTIONS
   --, --verbose  verbose output
 ```
 
-_See code: [src/commands/update.js](https://github.com/adobe/aio-cli-edge/blob/v0.1.0/src/commands/update.js)_
+_See code: [src/commands/edge/update.js](https://github.com/adobe/aio-cli-edge/blob/v0.1.0/src/commands/edge/update.js)_
 <!-- commandsstop -->
