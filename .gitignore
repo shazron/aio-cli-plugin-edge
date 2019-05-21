@@ -5,5 +5,4 @@
 /tmp
 /yarn.lock
 node_modules
-/src/.DS_Store
 .DS_Store

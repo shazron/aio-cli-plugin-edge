@@ -28,23 +28,41 @@ USAGE
 <!-- usagestop -->
 # Commands
 <!-- commands -->
-* [`oclif-example hello`](#oclif-example-hello)
+* [`oclif-example create PATH`](#oclif-example-create-path)
+* [`oclif-example update PATH`](#oclif-example-update-path)
 
-## `oclif-example hello`
+## `oclif-example create PATH`
 
-Describe the command here
+Download and link repos for the core Adobe I/O cli (edge)
 
 ```
 USAGE
-  $ oclif-example hello
+  $ oclif-example create PATH
+
+ARGUMENTS
+  PATH  folder that will contain the Adobe I/O cli repos
 
 OPTIONS
-  -n, --name=name  name to print
-
-DESCRIPTION
-  ...
-  Extra documentation goes here
+  --, --bin=bin  [default: aio-edge] edge cli binary name
+  --, --verbose  verbose output
 ```
 
-_See code: [src/commands/hello.js](https://github.com/adobe/aio-cli-edge/blob/v0.1.0/src/commands/hello.js)_
+_See code: [src/commands/create.js](https://github.com/adobe/aio-cli-edge/blob/v0.1.0/src/commands/create.js)_
+
+## `oclif-example update PATH`
+
+Update repos for the core Adobe I/O cli (edge)
+
+```
+USAGE
+  $ oclif-example update PATH
+
+ARGUMENTS
+  PATH  folder that contains the Adobe I/O cli repos (edge)
+
+OPTIONS
+  --, --verbose  verbose output
+```
+
+_See code: [src/commands/update.js](https://github.com/adobe/aio-cli-edge/blob/v0.1.0/src/commands/update.js)_
 <!-- commandsstop -->
