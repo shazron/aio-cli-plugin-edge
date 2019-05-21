@@ -1,0 +1,27 @@
+[
+  {
+    "url": "https://github.com/adobe/aio-cli.git",
+    "cli": true
+  },
+  {
+    "url": "https://github.com/adobe/aio-cli-plugin-config.git",
+    "plugin": true
+  },
+  
+  {
+    "url": "https://github.com/adobe/aio-cli-plugin-jwt-auth.git",
+    "plugin": true
+  },
+  {
+    "url": "https://github.com/adobe/aio-cli-plugin-console.git",
+    "plugin": true
+  },
+  {
+    "url": "https://github.com/adobe/aio-cli-plugin-cna.git",
+    "plugin": true
+  },
+  {
+    "url": "https://github.com/adobe/aio-cli-plugin-runtime.git",
+    "plugin": true
+  }
+]
