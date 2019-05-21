@@ -1,9 +1,9 @@
 {
-  "name": "edge-cli",
+  "name": "@adobe/aio-cli-plugin-edge",
   "description": "Plugin to generate the edge version of the Adobe I/O cli and plugins",
   "version": "0.1.0",
   "author": "Adobe Inc.",
-  "bugs": "https://github.com/adobe/aio-cli-edge/issues",
+  "bugs": "https://github.com/adobe/aio-cli-plugin-edge/issues",
   "dependencies": {
     "@oclif/command": "^1.5.13",
     "@oclif/config": "^1.13.0",
@@ -26,7 +26,7 @@
     "/src",
     "/yarn.lock"
   ],
-  "homepage": "https://github.com/adobe/aio-cli-edge",
+  "homepage": "https://github.com/adobe/aio-cli-plugin-edge",
   "keywords": [
     "oclif-plugin"
   ],
@@ -43,7 +43,7 @@
       }
     }    
   },
-  "repository": "adobe/aio-cli-edge",
+  "repository": "adobe/aio-cli-plugin-edge",
   "scripts": {
     "postpack": "rm -f oclif.manifest.json",
     "posttest": "eslint .",

@@ -1,12 +1,12 @@
-edge-cli
+aio-cli-plugin-edge
 ========
 
 Plugin to generate the edge version of the Adobe I/O cli and plugins
 
 [![oclif](https://img.shields.io/badge/cli-oclif-brightgreen.svg)](https://oclif.io)
-[![Version](https://img.shields.io/npm/v/edge-cli.svg)](https://npmjs.org/package/edge-cli)
-[![Downloads/week](https://img.shields.io/npm/dw/edge-cli.svg)](https://npmjs.org/package/edge-cli)
-[![License](https://img.shields.io/npm/l/edge-cli.svg)](https://github.com/adobe/aio-cli-edge/blob/master/package.json)
+[![Version](https://img.shields.io/npm/v/aio-cli-plugin-edge.svg)](https://npmjs.org/package/aio-cli-plugin-edge)
+[![Downloads/week](https://img.shields.io/npm/dw/aio-cli-plugin-edge.svg)](https://npmjs.org/package/aio-cli-plugin-edge)
+[![License](https://img.shields.io/npm/l/aio-cli-plugin-edge.svg)](https://github.com/adobe/aio-cli-plugin-edge/blob/master/package.json)
 
 <!-- toc -->
 * [Usage](#usage)
@@ -15,11 +15,11 @@ Plugin to generate the edge version of the Adobe I/O cli and plugins
 # Usage
 <!-- usage -->
 ```sh-session
-$ npm install -g edge-cli
+$ npm install -g @adobe/aio-cli-plugin-edge
 $ oclif-example COMMAND
 running command...
 $ oclif-example (-v|--version|version)
-edge-cli/0.1.0 darwin-x64 node-v8.11.4
+@adobe/aio-cli-plugin-edge/0.1.0 darwin-x64 node-v8.11.4
 $ oclif-example --help [COMMAND]
 USAGE
   $ oclif-example COMMAND
@@ -48,8 +48,6 @@ OPTIONS
   --, --verbose  verbose output
 ```
 
-_See code: [src/commands/edge/install.js](https://github.com/adobe/aio-cli-edge/blob/v0.1.0/src/commands/edge/install.js)_
-
 ## `oclif-example edge:link PATH`
 
 Link repos for the core Adobe I/O cli (edge)
@@ -65,8 +63,6 @@ OPTIONS
   --, --bin=bin  [default: aio-edge] edge cli binary name
   --, --verbose  verbose output
 ```
-
-_See code: [src/commands/edge/link.js](https://github.com/adobe/aio-cli-edge/blob/v0.1.0/src/commands/edge/link.js)_
 
 ## `oclif-example edge:unlink PATH`
 
@@ -84,8 +80,6 @@ OPTIONS
   --, --verbose  verbose output
 ```
 
-_See code: [src/commands/edge/unlink.js](https://github.com/adobe/aio-cli-edge/blob/v0.1.0/src/commands/edge/unlink.js)_
-
 ## `oclif-example edge:update PATH`
 
 Update repos for the core Adobe I/O cli (edge)
@@ -100,6 +94,4 @@ ARGUMENTS
 OPTIONS
   --, --verbose  verbose output
 ```
-
-_See code: [src/commands/edge/update.js](https://github.com/adobe/aio-cli-edge/blob/v0.1.0/src/commands/edge/update.js)_
 <!-- commandsstop -->
