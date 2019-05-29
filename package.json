@@ -8,6 +8,7 @@
     "@oclif/command": "^1.5.13",
     "@oclif/config": "^1.13.0",
     "cli-ux": "^5.2.1",
+    "debug": "^4.1.1",
     "simple-git": "^1.113.0"
   },
   "devDependencies": {
@@ -41,7 +42,7 @@
       "edge": {
         "description": "Download, update, link, and unlink repos for the core Adobe I/O cli (edge)"
       }
-    }    
+    }
   },
   "repository": "adobe/aio-cli-plugin-edge",
   "scripts": {

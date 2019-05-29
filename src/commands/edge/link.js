@@ -3,6 +3,7 @@ const repos = require('../../repos.json')
 const path = require('path')
 const fs = require('fs')
 const {exec, execSync} = require('child_process')
+const debug = require('debug')('edge-link')
 
 class LinkCommand extends Command {
   async run() {
@@ -22,17 +23,25 @@ class LinkCommand extends Command {
     repos.forEach(repoItem =>  {
       const {url, plugin} = repoItem
       const repoName = url.match(regex)[1]
-
-      const execFlags = {
-        cwd: path.join(workingFolder, repoName),
-        stdio: flags.verbose ? 'inherit' : 'ignore',
-      }
-
       const repoPath = path.join(workingFolder, repoName)
       const packageJsonPath = path.join(repoPath, 'package.json')
 
+      const execFlags = {
+        cwd: repoPath,
+        stdio: flags.verbose ? 'inherit' : 'ignore',
+      }
+
+      debug('Exec flags', execFlags)
+      debug('plugin', plugin)
+
+      if (!fs.existsSync(repoPath)) {
+        this.error(`${repoPath} does not exist. Clone using 'git clone ${url}'`)
+      }
+
       if (plugin) { // OCLIF PLUGINS LINK
-        exec(`${flags.bin} plugins link`, execFlags, (error, stdout) => {
+        const cmd = `${flags.bin} plugins link`
+        debug('cmd', cmd)
+        exec(cmd, execFlags, (error, stdout) => {
           if (error) {
             throw error
           }
