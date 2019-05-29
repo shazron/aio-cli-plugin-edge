@@ -2,8 +2,8 @@ const {Command, flags} = require('@oclif/command')
 const repos = require('../../repos.json')
 const path = require('path')
 const fs = require('fs')
-const simpleGit = require('simple-git/promise')
 const {execSync} = require('child_process')
+const debug = require('debug')('edge-unlink')
 
 class UnlinkCommand extends Command {
   async run() {
@@ -28,7 +28,7 @@ class UnlinkCommand extends Command {
     repos.reverse()
 
     repos.forEach(repoItem =>  {
-      const {url, cli, plugin} = repoItem
+      const {url, cli, 'aio-plugins-link': aioPluginsLink, 'npm-link': npmLink, 'npm-link-items': npmLinkItems} = repoItem
       const repoName = url.match(regex)[1]
 
       const execFlags = {
@@ -36,12 +36,14 @@ class UnlinkCommand extends Command {
         stdio: flags.verbose ? 'inherit' : 'ignore',
       }
 
+      debug('Exec flags', execFlags)
+      debug('RepoItem', repoItem)
+
       const repoPath = path.join(workingFolder, repoName)
       const packageJsonPath = path.join(repoPath, 'package.json')
-      const git = simpleGit(repoPath)
       const packageJson = require(packageJsonPath)
 
-      if (cli) { // NPM LINK
+      if (cli) {
         // modify package.json bin name to 'bin'
         packageJson.bin = {
           [flags.bin]: './bin/run',
@@ -51,14 +53,21 @@ class UnlinkCommand extends Command {
 
         // write out the new package.json
         fs.writeFileSync(packageJsonPath, JSON.stringify(packageJson, null, 2))
+      }
 
+      if (npmLink) {
         execSync('npm unlink', execFlags)
-        this.log(`npm unlinked --> '${repoName}' for bin '${flags.bin}'`)
+        this.log(`npm unlinked --> '${repoName}'`)
+      }
 
-        // revert changes
-        git.stash()
-        git.stash('drop')
-      } else if (plugin) { // OCLIF PLUGINS LINK
+      if (npmLinkItems) {
+        npmLinkItems.forEach(linkItem => {
+          execSync(`npm unlink --no-save ${linkItem}`, execFlags)
+          this.log(`npm unlinked (local) in ${repoName} --> '${linkItem}'`)
+        })
+      }
+
+      if (aioPluginsLink) {
         try {
           execSync(`${flags.bin} plugins uninstall`, execFlags)
           this.log(`Uninstalled plugin (${flags.bin}) --> '${packageJson.name}'`)

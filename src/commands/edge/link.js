@@ -21,7 +21,7 @@ class LinkCommand extends Command {
     this.log(`Adobe I/O CLI (edge) will be installed as '${flags.bin}'`)
 
     repos.forEach(repoItem =>  {
-      const {url, plugin} = repoItem
+      const {url, cli, 'aio-plugins-link': aioPluginsLink, 'npm-link': npmLink, 'npm-link-items': npmLinkItems} = repoItem
       const repoName = url.match(regex)[1]
       const repoPath = path.join(workingFolder, repoName)
       const packageJsonPath = path.join(repoPath, 'package.json')
@@ -32,25 +32,13 @@ class LinkCommand extends Command {
       }
 
       debug('Exec flags', execFlags)
-      debug('plugin', plugin)
+      debug('RepoItem', repoItem)
 
       if (!fs.existsSync(repoPath)) {
         this.error(`${repoPath} does not exist. Clone using 'git clone ${url}'`)
       }
 
-      if (plugin) { // OCLIF PLUGINS LINK
-        const cmd = `${flags.bin} plugins link`
-        debug('cmd', cmd)
-        exec(cmd, execFlags, (error, stdout) => {
-          if (error) {
-            throw error
-          }
-          if (flags.verbose) {
-            this.log(stdout)
-          }
-          this.log(`Linked plugin (${flags.bin}) --> '${repoName}'`)
-        })
-      } else { // NPM LINK (cli)
+      if (cli) {
         // modify package.json bin name to 'bin'
         const packageJson = require(packageJsonPath)
         packageJson.bin = {
@@ -62,10 +50,33 @@ class LinkCommand extends Command {
         // write out the new package.json
         fs.writeFileSync(packageJsonPath, JSON.stringify(packageJson, null, 2))
 
+        // don't git stash, we need the package.json changes since it is linked
+      }
+
+      if (npmLinkItems) {
+        npmLinkItems.forEach(linkItem => {
+          execSync(`npm link ${linkItem}`, execFlags)
+          this.log(`npm linked (local) in ${repoName} --> '${linkItem}'`)
+        })
+      }
+
+      if (npmLink) {
         execSync('npm link', execFlags)
         this.log(`npm linked --> '${repoName}' with bin '${flags.bin}'`)
+      }
 
-        // don't git stash, we need the package.json changes since it is linked
+      if (aioPluginsLink) {
+        const cmd = `${flags.bin} plugins link`
+        debug('cmd', cmd)
+        exec(cmd, execFlags, (error, stdout) => {
+          if (error) {
+            throw error
+          }
+          if (flags.verbose) {
+            this.log(stdout)
+          }
+          this.log(`Linked plugin (${flags.bin}) --> '${repoName}'`)
+        })
       }
     })
   }

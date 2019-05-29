@@ -1,27 +1,42 @@
 [
   {
     "url": "https://github.com/adobe/aio-cli.git",
-    "plugin": false
+    "cli": true,
+    "aio-plugins-link": false,
+    "npm-link": true
+  },
+  {
+    "url": "https://github.com/adobe/aio-cli-config.git",
+    "aio-plugins-link": false,
+    "npm-link": true
   },
   {
     "url": "https://github.com/adobe/aio-cli-plugin-config.git",
-    "plugin": true
+    "aio-plugins-link": true,
+    "npm-link": false,
+    "npm-link-items": ["@adobe/aio-cli-config"]
   },
-  
   {
     "url": "https://github.com/adobe/aio-cli-plugin-jwt-auth.git",
-    "plugin": true
+    "aio-plugins-link": true,
+    "npm-link": true,
+    "npm-link-items": ["@adobe/aio-cli-config"]    
   },
   {
     "url": "https://github.com/adobe/aio-cli-plugin-console.git",
-    "plugin": true
-  },
-  {
-    "url": "https://github.com/adobe/aio-cli-plugin-cna.git",
-    "plugin": true
+    "aio-plugins-link": true,
+    "npm-link": false,
+    "npm-link-items": ["@adobe/aio-cli-config", "@adobe/aio-cli-plugin-jwt-auth"]
   },
   {
     "url": "https://github.com/adobe/aio-cli-plugin-runtime.git",
-    "plugin": true
+    "aio-plugins-link": true,
+    "npm-link": false,
+    "npm-link-items": ["@adobe/aio-cli-config"]
+  },
+  {
+    "url": "https://github.com/adobe/aio-cli-plugin-cna.git",
+    "aio-plugins-link": true,
+    "npm-link": false
   }
 ]
