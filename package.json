@@ -5,7 +5,7 @@
   "author": "Adobe Inc.",
   "bugs": "https://github.com/adobe/aio-cli-plugin-edge/issues",
   "dependencies": {
-    "@oclif/command": "^1.5.13",
+    "@oclif/command": "^1.6.1",
     "@oclif/config": "^1.13.0",
     "cli-ux": "^5.2.1",
     "debug": "^4.1.1",
