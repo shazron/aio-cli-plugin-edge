@@ -12,20 +12,27 @@
     "simple-git": "^1.132.0"
   },
   "devDependencies": {
+    "@adobe/eslint-config-aio-lib-config": "^1.4.0",
     "@oclif/dev-cli": "^1.22.0",
     "@oclif/plugin-help": "^2.1.6",
-    "eslint": "^5.16.0",
+    "eslint": "^7",
     "eslint-config-oclif": "^3.1.0",
-    "globby": "^8.0.2"
+    "eslint-config-standard": "^16.0.3",
+    "eslint-plugin-import": "^2.25.4",
+    "eslint-plugin-jest": "^23.20.0",
+    "eslint-plugin-jsdoc": "^37.6.1",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-promise": "^5.2.0",
+    "globby": "^8.0.2",
+    "typescript": "^4.5.4"
   },
   "engines": {
     "node": ">=8.0.0"
   },
   "files": [
-    "/npm-shrinkwrap.json",
     "/oclif.manifest.json",
     "/src",
-    "/yarn.lock"
+    "/package-lock.json"
   ],
   "homepage": "https://github.com/adobe/aio-cli-plugin-edge",
   "keywords": [
