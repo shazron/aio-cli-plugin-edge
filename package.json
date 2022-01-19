@@ -6,10 +6,10 @@
   "bugs": "https://github.com/adobe/aio-cli-plugin-edge/issues",
   "dependencies": {
     "@oclif/command": "^1.6.1",
-    "@oclif/config": "^1.13.0",
-    "cli-ux": "^5.2.1",
+    "@oclif/config": "^1.15.1",
+    "cli-ux": "^5.4.5",
     "debug": "^4.1.1",
-    "simple-git": "^1.113.0"
+    "simple-git": "^1.132.0"
   },
   "devDependencies": {
     "@oclif/dev-cli": "^1.22.0",
